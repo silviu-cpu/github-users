@@ -17,7 +17,7 @@ export class UserDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private githubService: GithubApiService,
     private router: Router,
-    private stateService: StateService // <-- Inject service
+    private stateService: StateService
   ) {}
 
   async ngOnInit() {
@@ -35,7 +35,6 @@ export class UserDetailComponent implements OnInit {
   }
 
   goBack() {
-    // Get the current index and navigate back
     const currentIndex = this.stateService.getCurrentIndex();
     const since = this.stateService.getHistory()[currentIndex];
 
