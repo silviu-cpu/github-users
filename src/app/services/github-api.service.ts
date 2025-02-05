@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import axios from 'axios';
+import { environment } from '../environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GithubApiService {
   private apiUrl = 'https://api.github.com';
-  private authToken = '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';
+  private authToken = environment.githubToken;
 
   // Function to parse the 'Link' header into an object containing 'next' link
   private parseLinkHeader(linkHeader: string): { [key: string]: string } {
@@ -39,8 +40,8 @@ export class GithubApiService {
     const paginationLinks = this.parseLinkHeader(linkHeader);
 
     return {
-      users: response.data, // Users data
-      pagination: paginationLinks, // Pagination links (next, prev, first, last)
+      users: response.data,
+      pagination: paginationLinks,
     };
   }
 
