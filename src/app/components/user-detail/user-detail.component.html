@@ -1,0 +1,28 @@
+<div fxLayout="column" fxLayoutAlign="center center" class="container">
+  <div *ngIf="isLoading" class="loading-message">
+    <mat-spinner></mat-spinner> Loading user details...
+  </div>
+
+  <mat-card class="user-details-card" *ngIf="!isLoading">
+    <button mat-button (click)="goBack()" color="primary" class="back-button">
+      Back
+    </button>
+
+    <mat-card-header>
+      <mat-card-title>{{ user.login }}</mat-card-title>
+      <mat-card-subtitle>Type: {{ user.type }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <h3 class="primary-color">Repositories</h3>
+      <div *ngIf="repos.length === 0">
+        No repositories available at this user
+      </div>
+      <mat-list>
+        <mat-list-item *ngFor="let repo of repos">
+          {{ repo.name }}
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+</div>

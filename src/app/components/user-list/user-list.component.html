@@ -1,0 +1,48 @@
+<div class="container">
+  <div *ngIf="loading" class="loading-message">
+    <mat-spinner></mat-spinner> Loading users...
+  </div>
+
+  <div *ngIf="errorMessage" class="error-message">
+    <p>{{ errorMessage }}</p>
+  </div>
+
+  <div
+    class="user-list"
+    fxLayout="column"
+    fxLayoutAlign="center center"
+    fxLayoutGap="16px"
+  >
+    <mat-card
+      *ngFor="let user of users"
+      (click)="goToUser(user.login)"
+      class="user-card"
+      fxFlex="none"
+    >
+      <img [src]="user.avatar_url" alt="{{ user.login }}" class="user-avatar" />
+      <mat-card-header>
+        <mat-card-title>{{ user.login }}</mat-card-title>
+      </mat-card-header>
+    </mat-card>
+  </div>
+
+  <div class="pagination-controls" fxLayout="row" fxLayoutAlign="center center">
+    <button
+      mat-raised-button
+      (click)="prevPage()"
+      [disabled]="since === 0"
+      color="primary"
+      class="pagination-button"
+    >
+      Previous
+    </button>
+    <button
+      mat-raised-button
+      (click)="nextPage()"
+      color="primary"
+      class="pagination-button"
+    >
+      Next
+    </button>
+  </div>
+</div>

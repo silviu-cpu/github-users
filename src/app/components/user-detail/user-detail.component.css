@@ -1,0 +1,30 @@
+.primary-color {
+  color: #673ab7;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.mt-2x {
+  margin-top: 20px;
+}
+
+.user-details-card {
+  min-width: 300px;
+}
+
+button {
+  max-width: 100px;
+}
+
+.loading-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 18px;
+  color: #673ab7;
+}
+
+mat-spinner {
+  margin-right: 8px;
+}
